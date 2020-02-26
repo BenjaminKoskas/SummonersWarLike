@@ -20,6 +20,9 @@ TextureImporter:
   - first:
       213: -8821478651301173770
     second: Battle_Button
+  - first:
+      213: -583253929112224257
+    second: Monster Button
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -253,7 +256,7 @@ TextureImporter:
         width: 198
         height: 208
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,6 +264,27 @@ TextureImporter:
       bones: []
       spriteID: 6f56083a7efc39580800000000000000
       internalID: -8821478651301173770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Monster Button
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 355
+        width: 188
+        height: 210
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffd3a6544add7e7f0800000000000000
+      internalID: -583253929112224257
       vertices: []
       indices: 
       edges: []
