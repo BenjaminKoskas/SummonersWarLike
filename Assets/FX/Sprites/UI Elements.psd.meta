@@ -17,6 +17,9 @@ TextureImporter:
   - first:
       213: -22980104854057796
     second: Energy Bar
+  - first:
+      213: -8821478651301173770
+    second: Battle_Button
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -229,7 +232,7 @@ TextureImporter:
         width: 292
         height: 119
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -237,6 +240,27 @@ TextureImporter:
       bones: []
       spriteID: cbcc54567bb5eaff0800000000000000
       internalID: -22980104854057796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Battle_Button
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 566
+        width: 198
+        height: 208
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f56083a7efc39580800000000000000
+      internalID: -8821478651301173770
       vertices: []
       indices: 
       edges: []
