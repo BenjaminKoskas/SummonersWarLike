@@ -23,6 +23,12 @@ TextureImporter:
   - first:
       213: -583253929112224257
     second: Monster Button
+  - first:
+      213: -3269310217214243830
+    second: Friend_Button
+  - first:
+      213: 4313974856069872498
+    second: Shop_Button
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -277,7 +283,7 @@ TextureImporter:
         width: 188
         height: 210
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -285,6 +291,48 @@ TextureImporter:
       bones: []
       spriteID: ffd3a6544add7e7f0800000000000000
       internalID: -583253929112224257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Friend_Button
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 177
+        width: 183
+        height: 175
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0cc362dda311a2d0800000000000000
+      internalID: -3269310217214243830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Shop_Button
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 575
+        width: 194
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27bf20276415edb30800000000000000
+      internalID: 4313974856069872498
       vertices: []
       indices: 
       edges: []
