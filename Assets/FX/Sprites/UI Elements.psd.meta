@@ -29,6 +29,9 @@ TextureImporter:
   - first:
       213: 4313974856069872498
     second: Shop_Button
+  - first:
+      213: -1876222513500032801
+    second: Name Plate
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -325,7 +328,7 @@ TextureImporter:
         width: 194
         height: 167
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -333,6 +336,27 @@ TextureImporter:
       bones: []
       spriteID: 27bf20276415edb30800000000000000
       internalID: 4313974856069872498
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Name Plate
+      rect:
+        serializedVersion: 2
+        x: 980
+        y: 680
+        width: 903
+        height: 307
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd07d3b809156f5e0800000000000000
+      internalID: -1876222513500032801
       vertices: []
       indices: 
       edges: []

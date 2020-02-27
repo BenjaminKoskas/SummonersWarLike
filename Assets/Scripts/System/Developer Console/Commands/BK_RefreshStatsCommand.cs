@@ -66,6 +66,8 @@ public class BK_RefreshStatsCommand : BK_ConsoleCommand
         
         player.energyDisplay.text = BK_DBManager.energy.ToString() + "/" + BK_DBManager.maxEnergy.ToString();
 
+        player.nameDisplay.text = BK_DBManager.username.ToUpper();
+        
         return true;
     }
 }

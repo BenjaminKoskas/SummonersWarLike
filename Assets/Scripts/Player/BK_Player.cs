@@ -8,6 +8,7 @@ public class BK_Player : MonoBehaviour
     public Text manaDisplay;
     public Text crystalDisplay;
     public Text energyDisplay;
+    public Text nameDisplay;
 
     public static BK_Player instance;
 
@@ -68,6 +69,7 @@ public class BK_Player : MonoBehaviour
             
         energyDisplay.text = BK_DBManager.energy.ToString() + "/" + BK_DBManager.maxEnergy.ToString();
 
+        nameDisplay.text = BK_DBManager.username.ToUpper();
     }
 
     public void CallSaveData()
