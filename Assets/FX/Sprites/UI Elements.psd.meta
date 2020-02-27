@@ -32,6 +32,9 @@ TextureImporter:
   - first:
       213: -1876222513500032801
     second: Name Plate
+  - first:
+      213: -4504395327343733031
+    second: xp
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -349,7 +352,7 @@ TextureImporter:
         width: 903
         height: 307
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -357,6 +360,27 @@ TextureImporter:
       bones: []
       spriteID: fd07d3b809156f5e0800000000000000
       internalID: -1876222513500032801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: xp
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 456
+        width: 607
+        height: 123
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d65fb9a05c2d71c0800000000000000
+      internalID: -4504395327343733031
       vertices: []
       indices: 
       edges: []
