@@ -5,6 +5,12 @@ public class BK_AddCrystalCommand : BK_ConsoleCommand
 {
     public override bool Process(string[] args)
     {
+        if (!BK_DBManager.LoggedIn) 
+        { 
+            Debug.Log("Not Logged in an account");
+            return false; 
+        }
+
         if (args.Length != 1) { return false; }
 
         if (!int.TryParse(args[0], out int value))

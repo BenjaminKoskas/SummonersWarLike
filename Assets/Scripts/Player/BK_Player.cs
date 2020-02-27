@@ -26,7 +26,7 @@ public class BK_Player : MonoBehaviour
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
         }
 
-        if(BK_DBManager.mana >= 1000000)
+        if(BK_DBManager.mana >= 1000000) // check if mana > 1 million and format the text 
         {
             char[] s = BK_DBManager.mana.ToString().ToCharArray();
             string final = "";
@@ -44,7 +44,7 @@ public class BK_Player : MonoBehaviour
             manaDisplay.text = BK_DBManager.mana.ToString();
         }
 
-        if (BK_DBManager.crystal >= 1000000)
+        if (BK_DBManager.crystal >= 1000000) // check if crystal > 1 million and format the text
         {
             char[] s = BK_DBManager.crystal.ToString().ToCharArray();
             string final = "";
