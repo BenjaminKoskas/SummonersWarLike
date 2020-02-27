@@ -1,5 +1,23 @@
 {
     "files.exclude": {
-        "**/*.meta": true
+        // Files
+        "**/*.meta": true,
+        "**/*.ttf": true,
+        "**/*.asset": true,
+        "**/*.csproj": true,
+        "**/*.sln": true,
+        // Folders
+        "Assets/_Scenes/": true,
+        "Assets/FX/": true,
+        "Assets/Input/": true,
+        "Assets/Prefabs/": true,
+        "Assets/TextMesh Pro/": true,
+        "Assets/Utilities/": true,
+        "Library/": true,
+        "Logs/": true,
+        "obj/": true,
+        "Packages/": true,
+        "ProjectSettings/": true,
+        "Temp/": true
     }
 }
