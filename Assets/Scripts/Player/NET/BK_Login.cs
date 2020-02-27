@@ -10,6 +10,10 @@ public class BK_Login : MonoBehaviour
 
     public Button submitButton;
 
+    public bool autoLog = false;
+    public string autoLog_Username;
+    public string autoLog_Password;
+
     public void CallLogin()
     {
         StartCoroutine(LoginPlayer());
@@ -18,21 +22,30 @@ public class BK_Login : MonoBehaviour
     IEnumerator LoginPlayer()
     {
         WWWForm form = new WWWForm();
-        form.AddField("name", nameField.text);
-        form.AddField("password", passwordField.text);
-
+        if(autoLog) 
+        {
+           form.AddField("name", autoLog_Username);
+           form.AddField("password", autoLog_Password); 
+        } 
+        else 
+        {
+            form.AddField("name", nameField.text);
+            form.AddField("password", passwordField.text);
+        }
+        
         UnityWebRequest request = UnityWebRequest.Post("http://localhost:8888/sqlconnect/login.php", form);
         request.downloadHandler = new DownloadHandlerBuffer();
         yield return request.SendWebRequest();
 
         if (request.downloadHandler.text[0] == '0')
         {
-            BK_DBManager.username = nameField.text;
+            if(autoLog) { BK_DBManager.username = autoLog_Username; }
+            else { BK_DBManager.username = nameField.text; }    
             BK_DBManager.mana = int.Parse(request.downloadHandler.text.Split('\t')[1]);
             BK_DBManager.crystal = int.Parse(request.downloadHandler.text.Split('\t')[2]);
             BK_DBManager.energy = int.Parse(request.downloadHandler.text.Split('\t')[3]);
             BK_DBManager.maxEnergy = int.Parse(request.downloadHandler.text.Split('\t')[4]);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            if(!autoLog) { UnityEngine.SceneManagement.SceneManager.LoadScene(0); }         
         }
         else
         {

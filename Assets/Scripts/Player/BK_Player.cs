@@ -21,48 +21,53 @@ public class BK_Player : MonoBehaviour
 
         instance = this;
 
-        if (BK_DBManager.username == null)
+        if (BK_DBManager.username == null && !GetComponent<BK_Login>().autoLog)
         {
             UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        } 
+        else 
+        {
+            GetComponent<BK_Login>().CallLogin();
         }
 
         if(BK_DBManager.mana >= 1000000) // check if mana > 1 million and format the text 
-        {
-            char[] s = BK_DBManager.mana.ToString().ToCharArray();
-            string final = "";
-            foreach (char c in s)
             {
-                if (final.Length < 1)
-                    final += c + ",";
-                if (final.Length < 5 && final.Length >= 2)
-                    final += c;
-            }
-            manaDisplay.text = final + "K";
-        } 
+                char[] s = BK_DBManager.mana.ToString().ToCharArray();
+                string final = "";
+                foreach (char c in s)
+                {
+                    if (final.Length < 1)
+                        final += c + ",";
+                    if (final.Length < 5 && final.Length >= 2)
+                        final += c;
+                }
+                manaDisplay.text = final + "K";
+            } 
         else
-        {
-            manaDisplay.text = BK_DBManager.mana.ToString();
-        }
+            {
+                manaDisplay.text = BK_DBManager.mana.ToString();
+            }
 
         if (BK_DBManager.crystal >= 1000000) // check if crystal > 1 million and format the text
-        {
-            char[] s = BK_DBManager.crystal.ToString().ToCharArray();
-            string final = "";
-            foreach (char c in s)
             {
-                if (final.Length < 1)
-                    final += c + ",";
-                if (final.Length < 5 && final.Length >= 2)
-                    final += c;
+                char[] s = BK_DBManager.crystal.ToString().ToCharArray();
+                string final = "";
+                foreach (char c in s)
+                {
+                    if (final.Length < 1)
+                        final += c + ",";
+                    if (final.Length < 5 && final.Length >= 2)
+                        final += c;
+                }
+                crystalDisplay.text = final + "K";
             }
-            crystalDisplay.text = final + "K";
-        }
         else
         {
             crystalDisplay.text = BK_DBManager.crystal.ToString();
         }
-
+            
         energyDisplay.text = BK_DBManager.energy.ToString() + "/" + BK_DBManager.maxEnergy.ToString();
+
     }
 
     public void CallSaveData()
@@ -74,7 +79,6 @@ public class BK_Player : MonoBehaviour
     {
         StartCoroutine(SavePlayerData());
     }
-
     IEnumerator SavePlayerData()
     {
         WWWForm form = new WWWForm();
@@ -100,4 +104,5 @@ public class BK_Player : MonoBehaviour
         BK_DBManager.LogOut();
         UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
+
 }
