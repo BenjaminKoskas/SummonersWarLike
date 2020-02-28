@@ -72,6 +72,62 @@ public class BK_Player : MonoBehaviour
         //nameDisplay.text = BK_DBManager.username.ToUpper();
     }
 
+    public void AddMana(int value) 
+    {
+        BK_DBManager.mana += value;
+        if (BK_DBManager.mana >= 1000000)
+        {
+            char[] s = BK_DBManager.mana.ToString().ToCharArray();
+            string final = "";
+            foreach (char c in s)
+            {
+                if (final.Length < 1)
+                    final += c + ",";
+                if (final.Length < 5 && final.Length >= 2)
+                    final += c;
+            }
+            BK_Player.instance.manaDisplay.text = final + "K";
+        }
+        else
+        {
+            BK_Player.instance.manaDisplay.text = BK_DBManager.mana.ToString();
+        }
+    }
+
+    public void AddCrystal(int value) 
+    {
+        BK_DBManager.crystal += value;
+        if (BK_DBManager.crystal >= 1000000)
+        {
+            char[] s = BK_DBManager.crystal.ToString().ToCharArray();
+            string final = "";
+            foreach (char c in s)
+            {
+                if (final.Length < 1)
+                    final += c + ",";
+                if (final.Length < 5 && final.Length >= 2)
+                    final += c;
+            }
+            BK_Player.instance.crystalDisplay.text = final + "K";
+        }
+        else
+        {
+            BK_Player.instance.crystalDisplay.text = BK_DBManager.crystal.ToString();
+        }
+    }
+
+    public void AddEnergy(int value) 
+    {
+        BK_DBManager.energy += value;
+        BK_Player.instance.energyDisplay.text = BK_DBManager.energy.ToString() + "/" + BK_DBManager.maxEnergy.ToString();
+    }
+
+    public void SetMaxEnergy(int value) 
+    {
+        BK_DBManager.maxEnergy = value;
+        BK_Player.instance.energyDisplay.text = BK_DBManager.energy.ToString() + "/" + BK_DBManager.maxEnergy.ToString();
+    }
+
     public void CallSaveData()
     {
         StartCoroutine(SavePlayerData());

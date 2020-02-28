@@ -5,12 +5,6 @@ public class BK_AddCrystalCommand : BK_ConsoleCommand
 {
     public override bool Process(string[] args)
     {
-        if (!BK_DBManager.LoggedIn) 
-        { 
-            Debug.Log("Not Logged in an account");
-            return false; 
-        }
-
         if (args.Length != 1) { return false; }
 
         if (!int.TryParse(args[0], out int value))
@@ -18,24 +12,22 @@ public class BK_AddCrystalCommand : BK_ConsoleCommand
             return false;
         }
 
-        BK_DBManager.crystal += value;
-        if (BK_DBManager.crystal >= 1000000)
-        {
-            char[] s = BK_DBManager.crystal.ToString().ToCharArray();
-            string final = "";
-            foreach (char c in s)
-            {
-                if (final.Length < 1)
-                    final += c + ",";
-                if (final.Length < 5 && final.Length >= 2)
-                    final += c;
-            }
-            BK_Player.instance.crystalDisplay.text = final + "K";
+        if (!BK_DBManager.LoggedIn) 
+        { 
+            Debug.Log("Not Logged in an account");
+            return false; 
         }
-        else
+
+        if (!GameObject.Find("Player")) 
         {
-            BK_Player.instance.crystalDisplay.text = BK_DBManager.crystal.ToString();
+            Debug.Log("No Player Found");
+            return false; 
         }
+
+        BK_Player player = GameObject.Find("Player").GetComponent<BK_Player>();
+
+        player.AddCrystal(value);
+        
 
         return true;
     }

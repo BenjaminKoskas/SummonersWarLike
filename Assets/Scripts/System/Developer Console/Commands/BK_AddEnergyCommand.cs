@@ -5,12 +5,6 @@ public class BK_AddEnergyCommand : BK_ConsoleCommand
 {
     public override bool Process(string[] args)
     {
-        if (!BK_DBManager.LoggedIn) 
-        { 
-            Debug.Log("Not Logged in an account");
-            return false; 
-        }
-
         if (args.Length != 1) { return false; }
 
         if (!int.TryParse(args[0], out int value))
@@ -18,9 +12,22 @@ public class BK_AddEnergyCommand : BK_ConsoleCommand
             return false;
         }
 
-        BK_DBManager.energy += value;
-        BK_Player.instance.energyDisplay.text = BK_DBManager.energy.ToString() + "/" + BK_DBManager.maxEnergy.ToString();
+        if (!BK_DBManager.LoggedIn) 
+        { 
+            Debug.Log("Not Logged in an account");
+            return false; 
+        }
 
+        if (!GameObject.Find("Player")) 
+        {
+            Debug.Log("No Player Found");
+            return false; 
+        }
+
+        BK_Player player = GameObject.Find("Player").GetComponent<BK_Player>();
+
+        player.AddEnergy(value);
+        
         return true;
     }
 }

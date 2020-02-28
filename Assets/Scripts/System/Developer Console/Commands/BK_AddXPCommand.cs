@@ -5,6 +5,13 @@ public class BK_AddXPCommand : BK_ConsoleCommand
 {
     public override bool Process(string[] args)
     {
+        if (args.Length != 1) { return false; }
+
+        if (!int.TryParse(args[0], out int value))
+        {
+            return false;
+        }
+
         if (!BK_DBManager.LoggedIn) 
         { 
             Debug.Log("Not Logged in an account");
@@ -18,13 +25,6 @@ public class BK_AddXPCommand : BK_ConsoleCommand
         }
 
         BK_PlayerLevel playerLevel = GameObject.Find("Player").GetComponent<BK_PlayerLevel>();
-
-        if (args.Length != 1) { return false; }
-
-        if (!int.TryParse(args[0], out int value))
-        {
-            return false;
-        }
 
         playerLevel.AddXP(value);
 
