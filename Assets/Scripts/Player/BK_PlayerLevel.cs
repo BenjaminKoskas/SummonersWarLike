@@ -11,6 +11,8 @@ public class BK_PlayerLevel : MonoBehaviour
     public int MAX_SCALE { get; } = 0;
     public int XP_TO_ADD { get; } = 250;
 
+    const int MAX_LEVEL = 50;
+
     public static BK_PlayerLevel instance;
 
     void Awake() 
@@ -22,24 +24,30 @@ public class BK_PlayerLevel : MonoBehaviour
         }
         levelDisplay.text = "Lvl : " + BK_DBManager.level.ToString();
 
-        //xpDisplay.rectTransform.offsetMax = new Vector2(MIN_SCALE * (BK_DBManager.xp / BK_DBManager.maxXp), xpDisplay.rectTransform.offsetMax.y);
-        //xpDisplay2.rectTransform.offsetMax = xpDisplay.rectTransform.offsetMax;
+        if(BK_DBManager.maxXp != 0) 
+        {
+            xpDisplay.rectTransform.offsetMax = new Vector2(MIN_SCALE * (BK_DBManager.xp / BK_DBManager.maxXp), xpDisplay.rectTransform.offsetMax.y);
+        }     
     }
 
     public void AddXP(int xp) 
     {
-        BK_DBManager.xp += xp;
-
-        if(BK_DBManager.xp >= BK_DBManager.maxXp) 
+        if(BK_DBManager.level != MAX_LEVEL) 
         {
-            BK_DBManager.level++;
-            levelDisplay.text = "Lvl : " + BK_DBManager.level.ToString();
+            BK_DBManager.xp += xp;
 
-            BK_DBManager.xp =  BK_DBManager.xp - BK_DBManager.maxXp;
-            BK_DBManager.maxXp += XP_TO_ADD;
+            if(BK_DBManager.xp >= BK_DBManager.maxXp) 
+            {
+                BK_DBManager.level++;
+                levelDisplay.text = "Lvl : " + BK_DBManager.level.ToString();
+
+                BK_DBManager.xp =  BK_DBManager.xp - BK_DBManager.maxXp;
+                BK_DBManager.maxXp += XP_TO_ADD;
+            }
+
+            float percentageOfLevel = 1 - (BK_DBManager.xp / BK_DBManager.maxXp);
+            xpDisplay.rectTransform.offsetMax = new Vector2(-(MIN_SCALE * percentageOfLevel), xpDisplay.rectTransform.offsetMax.y);
         }
-
-        float percentageOfLevel = 1 - (BK_DBManager.xp / BK_DBManager.maxXp);
-        xpDisplay.rectTransform.offsetMax = new Vector2(-(MIN_SCALE * percentageOfLevel), xpDisplay.rectTransform.offsetMax.y);
+        
     }
 }
