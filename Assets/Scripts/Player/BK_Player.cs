@@ -69,7 +69,7 @@ public class BK_Player : MonoBehaviour
             
         energyDisplay.text = BK_DBManager.energy.ToString() + "/" + BK_DBManager.maxEnergy.ToString();
 
-        nameDisplay.text = BK_DBManager.username.ToUpper();
+        //nameDisplay.text = BK_DBManager.username.ToUpper();
     }
 
     public void CallSaveData()
@@ -89,6 +89,9 @@ public class BK_Player : MonoBehaviour
         form.AddField("crystal", BK_DBManager.crystal);
         form.AddField("energy", BK_DBManager.energy);
         form.AddField("maxenergy", BK_DBManager.maxEnergy);
+        form.AddField("level", BK_DBManager.level);
+        form.AddField("xp", BK_DBManager.xp.ToString());
+        form.AddField("maxXP", BK_DBManager.maxXp.ToString());
 
         UnityWebRequest request = UnityWebRequest.Post("http://localhost:8888/sqlconnect/savedata.php", form);
         request.downloadHandler = new DownloadHandlerBuffer();

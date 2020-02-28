@@ -45,6 +45,9 @@ public class BK_Login : MonoBehaviour
             BK_DBManager.crystal = int.Parse(request.downloadHandler.text.Split('\t')[2]);
             BK_DBManager.energy = int.Parse(request.downloadHandler.text.Split('\t')[3]);
             BK_DBManager.maxEnergy = int.Parse(request.downloadHandler.text.Split('\t')[4]);
+            BK_DBManager.level = int.Parse(request.downloadHandler.text.Split('\t')[5]);
+            BK_DBManager.xp = float.Parse(request.downloadHandler.text.Split('\t')[6]);
+            BK_DBManager.maxXp = float.Parse(request.downloadHandler.text.Split('\t')[7]);
             if(!autoLog) { UnityEngine.SceneManagement.SceneManager.LoadScene(0); }         
         }
         else

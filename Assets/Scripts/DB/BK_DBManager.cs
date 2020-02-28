@@ -5,6 +5,9 @@
     public static int crystal;
     public static int energy;
     public static int maxEnergy;
+    public static int level;
+    public static float xp;
+    public static float maxXp;
 
     public static bool LoggedIn { get { return username != null; } }
 

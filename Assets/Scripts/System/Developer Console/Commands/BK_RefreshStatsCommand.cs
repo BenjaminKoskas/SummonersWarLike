@@ -18,6 +18,7 @@ public class BK_RefreshStatsCommand : BK_ConsoleCommand
         }
 
         BK_Player player = GameObject.Find("Player").GetComponent<BK_Player>();
+        BK_PlayerLevel playerLevel = GameObject.Find("Player").GetComponent<BK_PlayerLevel>();
 
         //if (args.Length != 1) { return false; }
 
@@ -25,8 +26,6 @@ public class BK_RefreshStatsCommand : BK_ConsoleCommand
         {
             return false;
         }*/
-
-        Debug.Log(BK_DBManager.mana);
 
         if(BK_DBManager.mana >= 1000000) // check if mana > 1 million and format the text 
         {
@@ -68,6 +67,10 @@ public class BK_RefreshStatsCommand : BK_ConsoleCommand
 
         player.nameDisplay.text = BK_DBManager.username.ToUpper();
         
+        playerLevel.levelDisplay.text = "Lvl : " + BK_DBManager.level.ToString();
+
+        playerLevel.xpDisplay.rectTransform.offsetMax = new Vector2(-(playerLevel.MIN_SCALE * (1 - (BK_DBManager.xp / BK_DBManager.maxXp))), playerLevel.xpDisplay.rectTransform.offsetMax.y);
+
         return true;
     }
 }
