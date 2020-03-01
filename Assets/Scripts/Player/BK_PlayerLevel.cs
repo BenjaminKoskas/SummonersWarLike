@@ -34,19 +34,28 @@ public class BK_PlayerLevel : MonoBehaviour
     {
         if(BK_DBManager.level != MAX_LEVEL) 
         {
+            float xpToRemove = BK_DBManager.maxXp - BK_DBManager.xp;
             BK_DBManager.xp += xp;
 
             if(BK_DBManager.xp >= BK_DBManager.maxXp) 
-            {
-                BK_DBManager.level++;
+            {           
+                int newXp = xp - (int)xpToRemove;
+
+                BK_DBManager.level++;                
                 levelDisplay.text = "Lvl : " + BK_DBManager.level.ToString();
 
-                BK_DBManager.xp =  BK_DBManager.xp - BK_DBManager.maxXp;
                 BK_DBManager.maxXp += XP_TO_ADD;
+                BK_DBManager.xp = 0;
+
+                AddXP(newXp);
             }
 
             float percentageOfLevel = 1 - (BK_DBManager.xp / BK_DBManager.maxXp);
             xpDisplay.rectTransform.offsetMax = new Vector2(-(MIN_SCALE * percentageOfLevel), xpDisplay.rectTransform.offsetMax.y);
+        } 
+        else 
+        {
+            BK_DBManager.xp = BK_DBManager.maxXp;
         }
         
     }
