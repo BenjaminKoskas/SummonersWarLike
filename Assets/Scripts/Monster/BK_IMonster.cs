@@ -4,7 +4,12 @@ public interface BK_IMonster
 {
     int ID {get;}
 
+    BK_EMonsterStar NatStar {get;}
+
+    BK_EMonsterType Type {get;}
+
     string Name {get;}
+    string AwakenedName {get;}
     int BasePv {get;} 
     int BaseAtk {get;}
     int BaseDef {get;}
